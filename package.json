@@ -1,0 +1,23 @@
+{
+  "name": "grapesjs-open-graph-embed-card",
+  "version": "1.0.0",
+  "description": "open-graph-embed-card",
+  "main": "dist/grapesjs-open-graph-embed-card.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/booellean/grapesjs-open-graph-embed-card.git"
+  },
+  "scripts": {
+    "start": "grapesjs-cli serve --host=0.0.0.0",
+    "build": "grapesjs-cli build",
+    "bump": "npm version patch -m 'Bump v%s'"
+  },
+  "keywords": [
+    "grapesjs",
+    "plugin"
+  ],
+  "devDependencies": {
+    "grapesjs-cli": "^2.0.0"
+  },
+  "license": "MIT"
+}
