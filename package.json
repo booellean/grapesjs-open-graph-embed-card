@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "grapesjs-cli serve --host=0.0.0.0",
+    "start-demo": "parcel _index.html --open",
     "build": "grapesjs-cli build",
     "bump": "npm version patch -m 'Bump v%s'"
   },
