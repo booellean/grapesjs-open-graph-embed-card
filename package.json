@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-open-graph-embed-card",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "open-graph-embed-card",
   "main": "dist/grapesjs-open-graph-embed-card.min.js",
   "repository": {
@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "grapesjs-cli serve --host=0.0.0.0",
-    "start-demo": "parcel _index.html --open",
     "build": "grapesjs-cli build",
     "bump": "npm version patch -m 'Bump v%s'"
   },
@@ -18,8 +17,7 @@
     "plugin"
   ],
   "devDependencies": {
-    "grapesjs-cli": "^2.0.0",
-    "parcel-bundler": "^1.12.5"
+    "grapesjs-cli": "^2.0.0"
   },
   "license": "MIT"
 }
