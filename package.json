@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-open-graph-embed-card",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "open-graph-embed-card",
   "main": "dist/grapesjs-open-graph-embed-card.min.js",
   "repository": {
@@ -13,9 +13,30 @@
     "bump": "npm version patch -m 'Bump v%s'"
   },
   "keywords": [
+    "grapes",
     "grapesjs",
-    "plugin"
+    "plugin",
+    "open graph",
+    "open graph protocol",
+    "embed",
+    "protocol",
+    "metadata",
+    "data",
+    "json",
+    "facebook",
+    "twitter",
+    "twitter cards",
+    "twitter card",
+    "cards",
+    "card",
+    "javascript",
+    "preview link",
+    "hyperlink"
   ],
+  "author" : "Elliot \"booellean\" Forst",
+  "bugs": {
+    "url": "https://github.com/booellean/grapesjs-open-graph-embed-card/issues"
+  },
   "devDependencies": {
     "grapesjs-cli": "^2.0.0"
   },
