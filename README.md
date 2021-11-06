@@ -89,7 +89,7 @@ From your server
     keywords: "The meta keywords for the page.",
     provider: "A string representation of the sub and primary domains.",
     title: "A user displayable title for the page.",
-    type:	"The type of content as defined by opengraph.",
+    type: "The type of content as defined by opengraph.",
     url: "A canonical URL for the page."
   }
 ```
