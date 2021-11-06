@@ -1,9 +1,8 @@
 # open-graph-embed-card
 
-[DEMO](##)
+[DEMO](https://spiritual-reminiscent-radiator.glitch.me/)
 > **Provide a live demo of your plugin**
-For a better user engagement create a simple live demo by using services like [JSFiddle](https://jsfiddle.net) [CodeSandbox](https://codesandbox.io) [CodePen](https://codepen.io) and link it here in your README (attaching a screenshot/gif will also be a plus).
-To help you in this process here below you will find the necessary HTML/CSS/JS, so it just a matter of copy-pasting on some of those services. After that delete this part and update the link above
+A simple embed card that uses open graph protocol to provide a website snapshot for your hyperlink.
 
 ### HTML
 ```html
@@ -22,39 +21,50 @@ const editor = grapesjs.init({
   fromElement: true,
   storageManager: false,
   plugins: ['grapesjs-open-graph-embed-card'],
+    pluginsOpts: {
+    'grapesjs-open-graph-embed-card': { /* Your options here */ }
+  }
 });
 ```
 
 ### CSS
-```css
-body, html {
-  margin: 0;
-  height: 100%;
-}
-```
+#### The css has variables that are loaded into the styles. You can override these variables in your project to style the cards
 
+* --og-card-background: #f8f9fa;
+* --og-card-border-radius: 0rem;
+* --og-card-border-color: #dcdcdc;
+* --og-card-border-style: solid;
+* --og-card-border-width: 1px;
+* --og-card-max-width: 600px;
+* --og-card-font-size: 1em;
+* --og-card-font-color: #494949;
+* --og-card-font-hover-color: #494949;
+* --og-card-figure-background: #848482;
+* --og-card-header-background: transparent;
+* --og-card-body-background: transparent;
+* --og-card-footer-background: transparent;
+* ... Please see src/grapesjs-open-graph-embed-card/components.js for how these styles are applied
 
 ## Summary
 
 * Plugin name: `grapesjs-open-graph-embed-card`
 * Components
-    * `component-id-1`
-    * `component-id-2`
-    * ...
+    * `open-graph-card`
 * Blocks
-    * `block-id-1`
-    * `block-id-2`
-    * ...
-
+    * `open-graph-card`
 
 
 ## Options
 
-| Option | Description | Default |
-|-|-|-
-| `option1` | Description option | `default value` |
-
-
+| Option | Description | Default | Type
+|-|-|-|-
+| `category` | Specify the category you can find the block. | `Basic` | blocks
+|-|-|-|-
+| `url` | The url used to query/parse the website and return the open graph styled json. | `''` | components
+| `request_type` | The type of request to pass. | `GET` | components
+| `headers` | Necessary headers to pass with the query url. | `{}` | components
+| `params` | Necessary params to pass with the query url. | `{}` | components
+| `query_name` | The name of the query var that is appended to the url. Note, this would like something like this: https://my_fake_website_parser.com?url=https://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol. | `url` | components
 
 ## Download
 
@@ -66,8 +76,23 @@ body, html {
   * `git clone https://github.com/booellean/grapesjs-open-graph-embed-card.git`
 
 
-
 ## Usage
+
+From your server
+- It's important to note that this plugin expects a specific return value to operate. It was developed with the same json return values as [Mozilla's page-metadata-parser](https://github.com/mozilla/page-metadata-parser). Please set up your server and/or callbacks from public parsers to return in that format in the 'data' field;
+
+```js
+  data: {
+    description: "A user displayable description for the page.",
+    icon: "A URL which contains an icon for the page.",
+    image: "A URL which contains a preview image for the page.",
+    keywords: "The meta keywords for the page.",
+    provider: "A string representation of the sub and primary domains.",
+    title: "A user displayable title for the page.",
+    type:	"The type of content as defined by opengraph.",
+    url: "A canonical URL for the page."
+  }
+```
 
 Directly in the browser
 ```html
@@ -98,9 +123,9 @@ import 'grapesjs/dist/css/grapes.min.css';
 const editor = grapesjs.init({
   container : '#gjs',
   // ...
-  plugins: [plugin],
+  plugins: ['grapesjs-open-graph-embed-card'],
   pluginsOpts: {
-    [plugin]: { /* options */ }
+    'grapesjs-open-graph-embed-card' : { /* options */ }
   }
   // or
   plugins: [
@@ -108,8 +133,7 @@ const editor = grapesjs.init({
   ],
 });
 ```
-
-
+---
 
 ## Development
 
@@ -137,7 +161,6 @@ Build the source
 ```sh
 $ npm run build
 ```
-
 
 
 ## License
