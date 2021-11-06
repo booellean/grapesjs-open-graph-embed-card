@@ -10,7 +10,8 @@
   "scripts": {
     "start": "grapesjs-cli serve --host=0.0.0.0 --devServer='{\"disableHostCheck\": true, \"compress\": true, \"inline\": true, \"port\": '80', \"allowedHosts\": [ \".glitch.me\" ]}'",
     "build": "grapesjs-cli build",
-    "bump": "npm version patch -m 'Bump v%s'"
+    "bump": "npm version patch -m 'Bump v%s'",
+    "test": ""
   },
   "keywords": [
     "grapes",
