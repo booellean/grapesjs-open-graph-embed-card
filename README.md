@@ -1,6 +1,6 @@
 # open-graph-embed-card
 
-[DEMO](https://spiritual-reminiscent-radiator.glitch.me/)
+[DEMO](https://grapesjs-open-graph-embed-card.glitch.me/)
 > **Provide a live demo of your plugin**
 A simple embed card that uses open graph protocol to provide a website snapshot for your hyperlink.
 
