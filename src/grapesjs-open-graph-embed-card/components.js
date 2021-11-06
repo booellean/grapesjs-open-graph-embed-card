@@ -57,7 +57,7 @@ export default (editor, opts = {}) => {
               draggable: false,
               copyable: false,
               attributes: {
-                class: 'og-card',
+                class: 'og-card'
               },
               components: [
                   {
@@ -68,7 +68,7 @@ export default (editor, opts = {}) => {
                     draggable: false,
                     copyable: false,
                     attributes: {
-                      class: 'og-card-image',
+                      class: 'og-card-image'
                     },
                     components: {
                       type: 'default',
@@ -78,7 +78,7 @@ export default (editor, opts = {}) => {
                       draggable: false,
                       copyable: false,
                       attributes: {
-                        'aria-hidden' : true,
+                        'aria-hidden' : true
                       },
                       components: {
                         type: 'image',
@@ -92,7 +92,7 @@ export default (editor, opts = {}) => {
                           'data-og-card-change' : "src",
                           'aria-hidden' : true,
                           'alt' : 'card image',
-                          src: model.attributes.attributes.image || '',
+                          src: model.attributes.attributes.image || ''
                         }
                       }
                     }
@@ -105,7 +105,7 @@ export default (editor, opts = {}) => {
                     draggable: false,
                     copyable: false,
                     attributes: {
-                      class: 'og-card-content',
+                      class: 'og-card-content'
                     },
                     components: [
                       {
@@ -133,7 +133,7 @@ export default (editor, opts = {}) => {
                             removable: false,
                             droppable: false,
                             draggable: false,
-                            copyable: false,
+                            copyable: false
                           }
                         }
                       },
@@ -155,7 +155,7 @@ export default (editor, opts = {}) => {
                           removable: false,
                           droppable: false,
                           draggable: false,
-                          copyable: false,
+                          copyable: false
                         }
                       },
                       {
@@ -184,7 +184,7 @@ export default (editor, opts = {}) => {
                               removable: false,
                               droppable: false,
                               draggable: false,
-                              copyable: false,
+                              copyable: false
                             }
                           },
                           {
@@ -205,7 +205,7 @@ export default (editor, opts = {}) => {
                               removable: false,
                               droppable: false,
                               draggable: false,
-                              copyable: false,
+                              copyable: false
                             }
                           }
                         ]
@@ -371,7 +371,7 @@ export default (editor, opts = {}) => {
           {
             type: 'text',
             name: 'url',
-          },
+          }
         ],
         attributes: {
           href: 'https://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol',
@@ -384,20 +384,19 @@ export default (editor, opts = {}) => {
           type: "website",
           url: "https://en.wikipedia.org/wiki/Facebook_Platform",
           target: '_blank',
-          class: 'og-parent',
+          class: 'og-parent'
         },
       },
       init() {
         this.listenTo(this, 'change:attributes:href', this.handleHrefChange);
       },
       async handleHrefChange(c, v) {
-        console.log(c, v);
         let backup = c._previousAttributes.attributes.href;
 
         if(backup === v) return; // We had reset the href from bad request
 
         try{
-          if(!options.url) throw new new Error('No scraper url was provided.');
+          if(!options.url) throw new Error('No scraper url was provided.');
           if(!v) throw new Error('Cannot scrape a blank url.');
 
           let params = options.params;
@@ -409,11 +408,11 @@ export default (editor, opts = {}) => {
               if(res.ok){
                 return res.json();
               }
-              throw new Error('The url could not be parsed')
+              throw new Error('The url could not be parsed');
             })
             .then( data => {
               if(data.data) return data.data;
-              throw new Error('Data was not returned')
+              throw new Error('Data was not returned');
             })
             .then( meta => {
               // If there is no meta data... somehow? We will throw an error
@@ -435,12 +434,12 @@ export default (editor, opts = {}) => {
               return false;
             })
         }catch(e){
+          console.log(e);
           alert(e);
           let attrs = Object.assign({ ...this.attributes.attributes }, { href : backup });
           this.setAttributes(attrs);
           return false;
         }
-        // TODO: handle website prop parsing and errors
       },
     },
     view: {
@@ -466,7 +465,7 @@ export default (editor, opts = {}) => {
             }else{
               c.listenTo(this.model, `change:attributes:${attr}`, () => {
                 let val = this.model.attributes.attributes[attr];
-                c.set(prop, val)
+                c.set(prop, val);
                 c.view.render();
               });
             }
