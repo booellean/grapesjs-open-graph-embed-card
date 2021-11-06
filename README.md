@@ -59,7 +59,7 @@ const editor = grapesjs.init({
 | Option | Description | Default | Type
 |-|-|-|-
 | `category` | Specify the category you can find the block. | `Basic` | blocks
-|-|-|-|-
+| | | | 
 | `url` | The url used to query/parse the website and return the open graph styled json. | `''` | components
 | `request_type` | The type of request to pass. | `GET` | components
 | `headers` | Necessary headers to pass with the query url. | `{}` | components
@@ -132,6 +132,17 @@ const editor = grapesjs.init({
     editor => plugin(editor, { /* options */ }),
   ],
 });
+```
+
+As a package
+```js
+import loadComponents from './grapesjs-open-graph-embed-card/components';
+import loadBlocks from './grapesjs-open-graph-embed-card/blocks';
+
+/** Your custom template codes */
+loadComponents(editor, options);
+loadBlocks(editor, options);
+
 ```
 ---
 
