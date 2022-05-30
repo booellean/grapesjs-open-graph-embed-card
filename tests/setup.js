@@ -24,7 +24,7 @@ global.alerts = [];
 global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
-    json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
+    json: () => Promise.resolve({ }),
   })
 );
 
