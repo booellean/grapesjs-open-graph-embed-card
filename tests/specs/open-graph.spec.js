@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
 const PluginSettingsWithoutURL = require('../../plugin_settings');
-PluginSettingsWithoutURL.pluginsOpts['grapesjs-open-graph-embed-card'] = ''
+PluginSettingsWithoutURL.pluginsOpts['grapesjs-open-graph-embed-card'] = {}
 const PluginSettingsWithURL = {
     ...PluginSettingsWithoutURL,
     pluginsOpts : {
