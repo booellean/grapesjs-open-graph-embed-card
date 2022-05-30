@@ -8,10 +8,12 @@
     "url": "https://github.com/booellean/grapesjs-open-graph-embed-card.git"
   },
   "scripts": {
-    "start": "grapesjs-cli serve --host=0.0.0.0 --devServer='{\"disableHostCheck\": true, \"compress\": true, \"inline\": true, \"port\": '80', \"allowedHosts\": [ \".glitch.me\" ]}'",
+    "start": "grapesjs-cli serve --host=0.0.0.0",
+    "start:backup": "grapesjs-cli serve --host=0.0.0.0 --devServer='{\"disableHostCheck\": true, \"compress\": true, \"inline\": true, \"port\": '80', \"allowedHosts\": [ \".glitch.me\" ]}'",
     "build": "grapesjs-cli build",
     "bump": "npm version patch -m 'Bump v%s'",
-    "test": ""
+    "test": "jest",
+    "test:dev": "jest --watch"
   },
   "keywords": [
     "grapes",
@@ -39,7 +41,22 @@
     "url": "https://github.com/booellean/grapesjs-open-graph-embed-card/issues"
   },
   "devDependencies": {
-    "grapesjs-cli": "^2.0.0"
+    "@babel/preset-env": "^7.16.11",
+    "@types/jsdom": "^16.2.14",
+    "babel-jest": "^27.5.1",
+    "grapesjs-cli": "^2.0.0",
+    "grapesjs": "^0.17.27",
+    "jest": "^27.5.1",
+    "jsdom": "^19.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "<rootDir>/tests/specs/**/*.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setup.js"
+    ]
   },
   "license": "MIT"
 }
