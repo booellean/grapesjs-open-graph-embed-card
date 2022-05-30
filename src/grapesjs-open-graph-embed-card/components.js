@@ -22,7 +22,10 @@ export default (editor, opts = {}) => {
     'url',
   ]
 
+  let errorCounter = 0;
+
   domc.addType('open-graph-card', {
+    id: 'open-graph-card',
     extend: 'default',
     extendFn: ['init'],
     extendView: 'default',
@@ -394,6 +397,7 @@ export default (editor, opts = {}) => {
         let backup = c._previousAttributes.attributes.href;
 
         if(backup === v) return; // We had reset the href from bad request
+        if(errorCounter > 0) return errorCounter = 0; // Some other error occurred, and we will avoid the infinite loop
 
         try{
           if(!options.url) throw new Error('No scraper url was provided.');
@@ -429,13 +433,14 @@ export default (editor, opts = {}) => {
             })
             .catch( error => {
               alert(error);
+              errorCounter++;
               let attrs = Object.assign({ ...this.attributes.attributes }, { href : backup });
               this.setAttributes(attrs);
               return false;
             })
         }catch(e){
-          console.log(e);
           alert(e);
+          errorCounter++;
           let attrs = Object.assign({ ...this.attributes.attributes }, { href : backup });
           this.setAttributes(attrs);
           return false;
