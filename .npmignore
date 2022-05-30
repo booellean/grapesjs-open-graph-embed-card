@@ -4,4 +4,7 @@
 **/tsconfig.json
 **/webpack.config.js
 node_modules
+.git
+plugin_settings.js
 src
+test
