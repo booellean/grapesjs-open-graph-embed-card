@@ -27,7 +27,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: echo ${{ github.event.release.tag_name:1 }}
+      - run: echo ${{ github.event.release.tag_name }}
+      - run: |
+        GITHUB_VERSION=${{ github.event.release.tag_name }}
+        echo "GITHUB_VERSION=${GITHUB_VERSION:1}" >> $VERSION
+      - run: echo ${{ VERSION }}
       # - run: npm version ${{ github.event.release.tag_name }}
       # - run: npm ci
       # - run: npm publish --access public
