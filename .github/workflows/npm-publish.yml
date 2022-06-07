@@ -31,7 +31,7 @@ jobs:
       - run: |
           VERSION=${{ github.event.release.tag_name }}
           echo "VERSION=${VERSION:1}" >> $VERSION
-      - run: echo ${VERSION}
+      - run: echo "${VERSION}"
       # - run: npm version ${{ github.event.release.tag_name }}
       # - run: npm ci
       # - run: npm publish --access public
