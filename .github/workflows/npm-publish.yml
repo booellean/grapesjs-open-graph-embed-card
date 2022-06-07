@@ -29,5 +29,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish
+      - run: echo "github.event.release.tag_name"
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
