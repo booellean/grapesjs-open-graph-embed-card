@@ -18,8 +18,17 @@ jobs:
       - run: npm ci
       - run: npm test
 
+  version:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      version: ${{ steps.set.outputs.version }}
+    steps:
+      - id: set
+        run: echo "::set-output name=version::$(echo ${{ github.event.release.tag_name }} | sed 's/v//')"
+
   publish-npm:
-    needs: build
+    needs: [ build, version ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,11 +36,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: echo ${{ github.event.release.tag_name }}
-      - run: |
-          VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/v//')
-      - run: npm version $VERSION
-      - run: npm ci
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: echo ${{ needs.version.outputs.version }}
+      # - run: npm version $VERSION
+      # - run: npm ci
+      # - run: npm publish --access public
+      #   env:
+          # NODE_AUTH_TOKEN: ${{secrets.npm_token}}
