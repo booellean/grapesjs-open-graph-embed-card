@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-open-graph-embed-card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "open-graph-embed-card",
   "main": "dist/grapesjs-open-graph-embed-card.min.js",
   "repository": {
